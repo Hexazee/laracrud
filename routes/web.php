@@ -13,8 +13,12 @@ Route::get('post/{post:slug}', [PostController::class, 'detail']);
 
 Route::get('author/{user:username}', [UserController::class, 'posts']);
 
-Route::get('login/', [LoginController::class, 'index'])->name('login');
+Route::get('login/', [LoginController::class, 'index'])->name('login')->middleware('guest');
+Route::post('login/', [LoginController::class, 'authentication']);
+// Route::post('logout/', [LoginController::class], 'logout');
+Route::post('logout/', 'App\Http\Controllers\LoginController@logout');
 
-
-Route::get('register/', [RegisterController::class, 'index'])->name('register');
+Route::get('register/', [RegisterController::class, 'index'])->name('register')->middleware('guest');
 Route::post('register/', [RegisterController::class, 'store']);
+
+Route::get('dashboard/', 'App\Http\Controllers\DashboardController@index')->name('dashboard')->middleware('auth');

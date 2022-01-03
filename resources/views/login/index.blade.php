@@ -2,8 +2,14 @@
 
 @section('content')
     @if (session()->has('success'))
-    <div class="absolute w-96 py-2 px-4 text-green-600 bg-green-200 m-10 lg:m-20 rounded shadow-lg">
+    <div class="absolute w-80 py-2 px-4 text-green-600 bg-green-200 m-10 lg:m-20 rounded shadow-lg">
         <p>{{ session('success') }}</p>
+    </div>
+    @endif
+
+    @if(session()->has('failed'))
+    <div class="absolute w-80 py-2 px-4 text-red-600 bg-red-200 m-10 lg:m-20 rounded shadow-lg">
+        <p>{{ session('failed') }}</p>
     </div>
     @endif
 
@@ -11,14 +17,15 @@
         <div class="bg-gray-700 rounded-lg -mt-24">
             <h1 class="text-gray-200 underline decoration-sky-400 text-3xl text-center -mb-5 mt-3">Login</h1>
             <div class="p-10 space-y-2">
-                <form action="" class="space-y-3">
+                <form action="" method="POST" class="space-y-3">
+                    @csrf
                     <div class="flex flex-col space-y-1">
                         <label for="username" class="form-label">Username</label>
-                        <input type="text" id="username" placeholder="ex : xeraphit01" name="username" class="form-input">
+                        <input type="text" id="username" placeholder="ex : xeraphit01" name="username" class="form-input @error('username') outline outline-red-600 @enderror" autofocus required value="{{ old('username') }}">
                     </div>
                     <div class="flex flex-col space-y-1">
                         <label for="password" class="form-label">Password</label>
-                        <input type="text" id="password" placeholder="Password" name="password" class="form-input">
+                        <input type="password" id="password" placeholder="Password" name="password" class="form-input" required>
                     </div>
                     <div class="flex items-center justify-center flex-col space-y-2">
                         <button type="submit" class="px-5 py-1 rounded-md mt-3 bg-gradient-to-br from-sky-400 to-green-400 text-semibold text-gray-100 hover:-translate-y-2 transform transition">Login</button>

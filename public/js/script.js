@@ -8,4 +8,9 @@ $(document).ready(function() {
         $('#btn-mobile').slideToggle('slow')
         $('#menu-mobile').slideToggle('slow')
     })
+
+    $('#click-dropdown').click(function () {
+        $('#dropdown-logout').slideToggle()
+    }) 
+
 })

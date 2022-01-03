@@ -4,11 +4,9 @@
 {{-- jumbotron --}}
 <div class="p-10 text-center">
     <h1 class="font-semibold text-3xl lg:text-4xl text-gray-300 first-letter:text-5xl lg:first-letter:text-8xl first-letter:text-sky-400">Lorem ipsum dolor sit amet.</h1>
-
     <p class="text-lg lg:text-2xl text-gray-400 px-10 lg:px-48 mt-3 lg:mt-5 mb-8">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis cumque <span class="underline decoration-sky-400">ipsa rerum</span> minus <span class="underline decoration-green-400">ullam error</span> sequi commodi vero <span class="underline decoration-sky-400">recusandae dolor</span>.</p>
     <a href="#" class="px-4 lg:px-8 py-2 lg:py-3 bg-gradient-to-br from-sky-400 to-green-400 rounded shadow-md hover:shadow-green-400/30 text-sm lg:text-md transtion-all duration-200 text-white font-semibold">Get Started</a>
 </div>
-
 <section id="posts" class="bg-gray-700 mt-64">
     <div class="px-10 py-5 text-gray-200">
         <h2 class="text-center text-2xl underline decoration-sky-400">Category</h2>
@@ -37,8 +35,9 @@
                 <h3 class="text-xl mb-1">{{ $post->title }}.</h3>
                 <p class="text-gray-300 text-sm">{{ Str::limit($post->body, 200) }}</p>
             </div>
-            <div class="underline decoration-green-400 font-semibold text-green-400 mt-3 hover:text-green-700 hover:decoration-green-700 transition duration-300">
-                <a href="post/{{ Str::slug($post->title) }}">Read more...</a>
+            <div class="mt-3 flex items-center justify-between">
+                <a href="post/{{ Str::slug($post->title) }}" class="underline decoration-green-400 font-semibold text-green-400 hover:text-green-700 hover:decoration-green-700 transition duration-300">Read more...</a>
+                <p class="text-sm font-light">{{ $post->created_at->diffForHumans() }}</p>
             </div>
         </div>
         @endforeach    
