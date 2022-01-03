@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .form-input {
+        @apply w-72 py-[0.3em] placeholder:pl-3 focus:placeholder-gray-700 bg-gray-300 placeholder:text-sm focus:bg-gray-50 focus:outline-none focus:ring ring-sky-400;
+    }
+
+    .form-label {
+        @apply font-medium text-gray-300;
+    }
+
+    .nav-link {
+        @apply hover:underline hover:decoration-sky-400 text-gray-300 text-lg hover:-translate-y-0.5 transform transition;
+    }
+
+    .nav-link-mobile {
+        @apply hover:underline hover:decoration-sky-400 text-gray-300 text-lg hover:translate-x-1 transform transition;
+    }
+
+
+
+
+
+
+
+
+}
