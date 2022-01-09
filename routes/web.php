@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::get('/', [PostController::class, 'index']);
 
@@ -21,4 +22,8 @@ Route::post('logout/', 'App\Http\Controllers\LoginController@logout');
 Route::get('register/', [RegisterController::class, 'index'])->name('register')->middleware('guest');
 Route::post('register/', [RegisterController::class, 'store']);
 
-Route::get('dashboard/', 'App\Http\Controllers\DashboardController@index')->name('dashboard')->middleware('auth');
+Route::get('dashboard/', function() {
+    return view('dashboard.index', [
+        'title' => 'Dashboard',
+    ]);
+})->middleware('auth');

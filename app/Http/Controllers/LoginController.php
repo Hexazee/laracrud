@@ -22,7 +22,7 @@ class LoginController extends Controller
         if(Auth::attempt($user_login)) {
             $request->session()->regenerate();
 
-            return redirect()->intended('/');
+            return redirect()->intended('/dashboard');
         }
 
         return back()->with('failed', 'Login failed! please check your username or password');

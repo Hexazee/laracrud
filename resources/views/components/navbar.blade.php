@@ -60,10 +60,11 @@
             ">Login</a>    
         @else
             <div class="text-md text-gray-200 flex items-center space-x-1">
-                <p>
-                    {{ auth()->user()->name }}
-                </p>
-                <button type="submit" id="click-dropdown"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="10" height="10" preserveAspectRatio="xMidYMid meet" viewBox="0 0 616 614"><path d="M602.442 200l-253 317c-24 29-61 29-84 0l-253-317c-24-30-12-53 25-53h540c38 0 49 23 25 53z" fill="#e5e7eb"/></svg></button>
+                <button type="submit" id="click-dropdown">
+                    <p>
+                        {{ auth()->user()->name }}<svg xmlns="http://www.w3.org/2000/svg" class="inline-block ml-2 mb-1" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="10" height="10" preserveAspectRatio="xMidYMid meet" viewBox="0 0 616 614"><path d="M602.442 200l-253 317c-24 29-61 29-84 0l-253-317c-24-30-12-53 25-53h540c38 0 49 23 25 53z" fill="#e5e7eb"/></svg>
+                    </p>
+                </button>
             </div>
             <div class="hidden absolute right-14 top-16 bg-gray-700 px-5 py-2 w-40 rounded-sm text-gray-300 space-y-2" id="dropdown-logout">
                 <a href="dashboard/">Dashboard</a>
