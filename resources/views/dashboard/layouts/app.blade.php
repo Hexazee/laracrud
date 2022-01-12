@@ -9,7 +9,7 @@
     <script src="//unpkg.com/alpinejs" defer></script>
 
 </head>
-<body class="antialiased bg-gray-600" style="min-height: 3000px;">
+<body class="antialiased bg-gray-600">
 
     <!-- sidebar and navbar -->
     <div class="lg:grid grid-cols-5" x-data="{open: false}">
@@ -34,15 +34,23 @@
             </header>
             <ul class="mt-10 text-md space-y-2 absolute inset-x-0 px-5 w-full">
                 <li>
-                    <a href="#" class="flex items-center hover:bg-sky-400 w-full py-2 px-4 rounded-full transform transition duration-200">
+                    <a href="/dashboard" class="flex items-cente {{ Request::is('dashboard') ? 'bg-sky-400' : '' }} w-full py-2 px-4 rounded-full transform transition duration-200">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                         </svg>
-                        Home
+                        Dashboard
+                    </a>
+                </li>
+                <li>
+                    <a href="/dashboard/posts" class="flex items-cente {{ Request::is('dashboard/posts*') ? 'bg-sky-400' : '' }} w-full py-2 px-4 rounded-full transform transition duration-200">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                        </svg>
+                        My Posts
                     </a>
                 </li>
                 <li x-data="{isOpen : false}">
-                    <button class="flex items-center hover:bg-sky-400 w-full py-2 px-4 rounded-full transform transition duration-200" @click="isOpen = true" @keydown.escape="isOpen=false">
+                    <button class="flex items-center w-full py-2 px-4 rounded-full transform transition duration-200" @click="isOpen = true" @keydown.escape="isOpen=false">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" />
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" />
@@ -65,19 +73,11 @@
                     </div>
                 </li>
                 <li>
-                    <a href="#" class="flex items-center hover:bg-sky-400 w-full py-2 px-4 rounded-full transform transition duration-200">
+                    <a href="#" class="flex items-center w-full py-2 px-4 rounded-full transform transition duration-200">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                         Pricing
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="flex items-center hover:bg-sky-400 w-full py-2 px-4 rounded-full transform transition duration-200">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14" />
-                        </svg>
-                        About
                     </a>
                 </li>
                 <li>
@@ -101,7 +101,7 @@
     <div class="grid grid-cols-5 lg:mt-20">
         <div class="col-span-1"></div>
         <div class="grid col-span-5 lg:col-span-4">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-10 py-5 min-h-min">
+            <div class="px-10">
                 @yield('content')            
             </div>
         </div>

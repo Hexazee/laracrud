@@ -1,4 +1,4 @@
-<header class="flex lg:fixed w-full mb-2 items-center justify-between px-5 py-2.5 lg:px-10 lg:py-5 bg-gray-700 text-gray-100 z-50" x-data="{dropdownLogout : false}">
+<header class="flex lg:fixed w-full mb-2 ml-0 lg:ml-[1.4rem] items-center justify-between px-5 py-2.5 lg:px-10 lg:py-5 bg-gray-700 text-gray-100 z-50" x-data="{dropdownLogout : false}">
     <form action="">
         <input type="text" class="w-[20rem] lg:w-[26rem] py-[0.25rem] px-3 rounded-xl focus:outline-none focus:ring focus:ring-sky-500 text-gray-600" placeholder="Search...">
     </form>
@@ -24,7 +24,7 @@
             x-transition:enter-end="opacity-100 scale-100"
         >
             <a href="/">Home</a>
-            <form action="logout/" method="POST">
+            <form action="{{ route('logout') }}" method="POST">
                 @csrf
                 <button type="submit">Logout</button>
             </form>
