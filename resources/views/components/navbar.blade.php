@@ -67,8 +67,8 @@
                 </button>
             </div>
             <div class="hidden absolute right-14 top-16 bg-gray-700 px-5 py-2 w-40 rounded-sm text-gray-300 space-y-2" id="dropdown-logout">
-                <a href="dashboard/">Dashboard</a>
-                <form action="logout/" method="POST">
+                <a href="/dashboard/posts">Dashboard</a>
+                <form action="/logout" method="POST">
                     @csrf
                     <button type="submit">Logout</button>
                 </form>

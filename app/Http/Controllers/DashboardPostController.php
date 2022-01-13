@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class DashboardPostController extends Controller
 {
@@ -30,6 +32,7 @@ class DashboardPostController extends Controller
     {
         return view('dashboard.posts.create', [
             'title' => 'Create Post',
+            'categories' => Category::all(),
         ]);
     }
 
@@ -41,7 +44,17 @@ class DashboardPostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'category_id' => 'required',
+            'user_id' => 'required',
+            'category_id' => 'required',
+            'category_id' => 'required',
+            'category_id' => 'required',
+        ]);
+        
+        Post::create($data);
+
+        return redirect('/');
     }
 
     /**

@@ -578,13 +578,13 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-left: 1.25rem;
   margin-right: 1.25rem;
 }
-.mx-auto {
-  margin-left: auto;
-  margin-right: auto;
-}
 .my-3 {
   margin-top: 0.75rem;
   margin-bottom: 0.75rem;
+}
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
 }
 .my-12 {
   margin-top: 3rem;
@@ -731,11 +731,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .w-\[20rem\] {
   width: 20rem;
 }
-.w-1\/2 {
-  width: 50%;
+.w-11\/12 {
+  width: 91.666667%;
 }
-.w-10\/12 {
-  width: 83.333333%;
+.w-2\/3 {
+  width: 66.666667%;
 }
 .table-auto {
   table-layout: auto;
@@ -829,6 +829,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .overflow-hidden {
   overflow: hidden;
+}
+.overflow-x-hidden {
+  overflow-x: hidden;
 }
 .scroll-smooth {
   scroll-behavior: smooth;
@@ -962,6 +965,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .p-3 {
   padding: 0.75rem;
 }
+.p-0 {
+  padding: 0px;
+}
 .px-10 {
   padding-left: 2.5rem;
   padding-right: 2.5rem;
@@ -1019,9 +1025,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .pb-2 {
   padding-bottom: 0.5rem;
-}
-.pb-4 {
-  padding-bottom: 1rem;
 }
 .text-center {
   text-align: center;
@@ -1403,12 +1406,24 @@ Ensure the default browser behavior of the `hidden` attribute.
     width: 26rem;
   }
 
+  .lg\:w-1\/2 {
+    width: 50%;
+  }
+
   .lg\:w-1\/5 {
     width: 20%;
   }
 
-  .lg\:w-1\/2 {
-    width: 50%;
+  .lg\:w-11\/12 {
+    width: 91.666667%;
+  }
+
+  .lg\:w-3\/4 {
+    width: 75%;
+  }
+
+  .lg\:w-2\/3 {
+    width: 66.666667%;
   }
 
   .lg\:translate-x-0 {

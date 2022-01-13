@@ -5,8 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $title }}</title>
+
+    {{-- style tailwind --}}
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+
+    {{-- alpine js --}}
     <script src="//unpkg.com/alpinejs" defer></script>
+
+    {{-- trix editor --}}
+    <link rel="stylesheet" href="{{ asset('css/trix.css') }}">
+    <script src="{{ asset('js/trix.js') }}"></script>
 
 </head>
 <body class="antialiased bg-gray-600">
