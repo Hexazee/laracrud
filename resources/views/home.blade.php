@@ -33,7 +33,7 @@
             </div>
             <div class="mt-2">
                 <h3 class="text-xl mb-1">{{ $post->title }}.</h3>
-                <p class="text-gray-300 text-sm">{{  Str::limit($post->body, 200)  }}</p>
+                <p class="text-gray-300 text-sm">{{  Str::limit(strip_tags($post->body), 200)  }}</p>
             </div>
             <div class="mt-3 flex items-center justify-between">
                 <a href="post/{{ Str::slug($post->title) }}" class="underline decoration-green-400 font-semibold text-green-400 hover:text-green-700 hover:decoration-green-700 transition duration-300">Read more...</a>

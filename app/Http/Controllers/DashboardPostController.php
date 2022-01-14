@@ -19,7 +19,7 @@ class DashboardPostController extends Controller
         return view('dashboard.posts.index', [
             'title' => 'My Posts',
             // query berdasarkan author
-            'posts' => Post::where('user_id', auth()->user()->id)->get()
+            'posts' => Post::latest()->where('user_id', auth()->user()->id)->get()
         ]);
     }
 
@@ -44,17 +44,20 @@ class DashboardPostController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->validate([
+        $dataValidated = $request->validate([
+            'title' => 'required|max:100',
             'category_id' => 'required',
-            'user_id' => 'required',
-            'category_id' => 'required',
-            'category_id' => 'required',
-            'category_id' => 'required',
+            'body' => 'required',
         ]);
-        
-        Post::create($data);
 
-        return redirect('/');
+        $dataValidated['slug'] = Str::slug(strip_tags($request->title));
+        $dataValidated['user_id'] = auth()->user()->id;
+        $dataValidated['published_at'] = now();
+
+        Post::create($dataValidated);
+
+        return redirect('/dashboard/posts')->with('success', 'Yeay your post has added!');
+
     }
 
     /**
@@ -65,7 +68,10 @@ class DashboardPostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        return view('dashboard.posts.show', [
+            'title' => $post->title,
+            'post' => $post,
+        ]);
     }
 
     /**
