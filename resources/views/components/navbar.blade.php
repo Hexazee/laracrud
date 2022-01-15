@@ -1,5 +1,5 @@
 
-<nav class="bg-gray-700 py-3 px-5 md:px-12 shadow-sm shadow-gray-800">
+<nav class="bg-gray-700 py-3 px-5 md:px-12 shadow-sm shadow-gray-800 fixed top-0 w-full">
     <!-- for mobile -->
     <div class="md:hidden flex items-center justify-between">
         <div class="text-2xl text-gray-100 underline decoration-sky-400">

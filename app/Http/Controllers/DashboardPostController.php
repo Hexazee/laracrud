@@ -48,7 +48,10 @@ class DashboardPostController extends Controller
             'title' => 'required|max:100',
             'category_id' => 'required',
             'body' => 'required',
+            'image' => 'image|file|max:1024'
         ]);
+
+        $dataValidated['image'] = $request->file('image')->store('post-image');
 
         $slug = Str::slug(strip_tags($request->title));
 

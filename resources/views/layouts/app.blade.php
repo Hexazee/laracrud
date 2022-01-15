@@ -7,7 +7,7 @@
     <title>My Blog | {{ $title }}</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
-<body class="antialiased bg-gray-800">
+<body class="antialiased bg-gray-800 mb-10 mt-20">
     @include('components.navbar')
 
     @yield('content')

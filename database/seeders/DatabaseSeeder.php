@@ -28,7 +28,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Article'
         ]);
 
-        Post::factory(10)->create();
+        Post::factory(30)->create();
 
     }
 }

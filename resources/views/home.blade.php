@@ -36,7 +36,7 @@
                 <p class="text-gray-300 text-sm">{{  Str::limit(strip_tags($post->body), 200)  }}</p>
             </div>
             <div class="mt-3 flex items-center justify-between">
-                <a href="post/{{ Str::slug($post->title) }}" class="underline decoration-green-400 font-semibold text-green-400 hover:text-green-700 hover:decoration-green-700 transition duration-300">Read more...</a>
+                <a href="/post/{{ $post->slug }}" class="underline decoration-green-400 font-semibold text-green-400 hover:text-green-700 hover:decoration-green-700 transition duration-300">Read more...</a>
                 <p class="text-sm font-light">{{ $post->created_at->diffForHumans() }}</p>
             </div>
         </div>

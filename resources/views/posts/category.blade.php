@@ -7,10 +7,10 @@
     <div class="card border-gray-200 rounded overflow-hidden shadow bg-gray-100 mx-5 md:mx-0">
         <div class="p-5 space-y-2 h-60 max-h-[80%]">
             <a href="/post/{{ Str::slug($post->title) }}" class="font-semibold text-3xl lg:text-2xl text-gray-700 underline decoration-sky-400">{{ $post->title }}</a>
-            <p class="text-gray-600 first-letter:text-xl first-letter:font-bold first-letter:text-sky-400">{{ Str::limit($post->body, 100) }}</p>
+            <p class="text-gray-600 first-letter:text-xl first-letter:font-bold first-letter:text-sky-400">{{ Str::limit(strip_tags($post->body), 100) }}</p>
             <p class="text-gray-500 text-xs"><span class="underline decoration-green-400 text-gray-500 text-xs">Category</span> : <a class="hover:underline" href="/posts/{{ Str::slug($post->category->name) }}">{{ $post->category->name }}</a></p>
             <div class="">
-                <a href="/post/{{ Str::slug($post->title) }}" class="font-semibold underline decoration-sky-400 text-gray-700 hover:text-gray-500">See Detail..</a>
+                <a href="/post/{{ $post->slug }}" class="font-semibold underline decoration-sky-400 text-gray-700 hover:text-gray-500">See Detail..</a>
             </div>
         </div>
         <figcaption class="flex space-x-3 items-center justify-between bg-gray-300 py-2 px-5 text-gray-700 mt-1">

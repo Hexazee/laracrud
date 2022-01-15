@@ -21,6 +21,7 @@
             </div>
         </header>
         <section class="mt-10">
+            <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title }}" class="w-2/3 mb-10">
             {!! $post->body !!}
         </section>
     </div>

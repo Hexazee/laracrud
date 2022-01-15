@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::get('/', [PostController::class, 'index']);
-
 Route::get('posts/{category:name}', [PostController::class, 'category']);
 Route::get('post/{post:slug}', [PostController::class, 'detail']);
 

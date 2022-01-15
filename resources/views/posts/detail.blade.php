@@ -6,6 +6,11 @@
         <h1 class="text-3xl underline decoration-sky-400 font-semibold text-gray-100">{{ $post->title }}</h1>
         <h3 class="text-xl text-gray-400">Category : <a href="/posts/{{ Str::slug($post->category->name) }}" class="underline decoration-sky-400">{{ $post->category->name }}</a></h3>
         <h3 class="text-md text-gray-400">By : {{ $post->author->name }}</h3>
+        @if($post->image)
+        <div class="w-2/3 shadow-xl">
+            <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title }}">
+        </div>
+        @endif
         <p class="text-gray-200 first-letter:text-5xl first-letter:text-sky-400">{!! $post->body !!}</p>
     </section>
 </div>
