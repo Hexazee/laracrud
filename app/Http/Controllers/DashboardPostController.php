@@ -120,7 +120,7 @@ class DashboardPostController extends Controller
         $dataRules['slug'] = $slug;
 
         $dataRules['user_id'] = auth()->user()->id;
-        $dataRules['published_at'] = now();
+        $dataRules['updated_at'] = now();
 
         Post::where('id', $post->id)
                 ->update($dataRules);

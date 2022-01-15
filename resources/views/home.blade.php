@@ -5,7 +5,7 @@
 <div class="p-10 text-center">
     <h1 class="font-semibold text-3xl lg:text-4xl text-gray-300 first-letter:text-5xl lg:first-letter:text-8xl first-letter:text-sky-400">Lorem ipsum dolor sit amet.</h1>
     <p class="text-lg lg:text-2xl text-gray-400 px-10 lg:px-48 mt-3 lg:mt-5 mb-8">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis cumque <span class="underline decoration-sky-400">ipsa rerum</span> minus <span class="underline decoration-green-400">ullam error</span> sequi commodi vero <span class="underline decoration-sky-400">recusandae dolor</span>.</p>
-    <a href="#" class="px-4 lg:px-8 py-2 lg:py-3 bg-gradient-to-br from-sky-400 to-green-400 rounded shadow-md hover:shadow-green-400/30 text-sm lg:text-md transtion-all duration-200 text-white font-semibold">Get Started</a>
+    <a href="#" class="px-4 lg:px-8 py-2 lg:py-3 bg-gradient-to-br from-sky-400 to-green-400 rounded shadow-md hover:shadow-green-400/30 text-sm lg:text-md transtion-all duration-200 text-white font-bold uppercase">Get Started</a>
 </div>
 <section id="posts" class="bg-gray-700 mt-64">
     <div class="px-10 py-5 text-gray-200">

@@ -14,8 +14,10 @@
             <h3 class="text-lg">By : {{ $post->author->name }}</h3>
             <h4 class="text-sm">{{ $post->author->job }}</h4>
             <div class="flex justify-between items-center">
-                <h6 class="text-md mt-5 italic">{{ $post->created_at->diffForHumans() }}</h6>
-                <a href="/dashboard/posts" class="flex items-center bg-gray-300 rounded px-4 py-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <h6 class="text-md mt-5 italic">{{ $post->created_at->diffForHumans() }} @if ($post->created_at < $post->updated_at)
+                    <small class="block text-xs text-gray-400">updated : {{ $post->updated_at->diffForHumans() }}</small>
+                @endif</h6>
+                <a href="/dashboard/posts" class="flex items-center bg-gray-200 text-gray-700 rounded px-4 py-2"><svg xmlns="http://www.w3.org/2000/svg" class="text-gray-600 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
                   </svg> Back to post</a>
             </div>

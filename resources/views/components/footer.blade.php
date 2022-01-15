@@ -1,4 +1,4 @@
-<footer class="bg-gray-700 mt-72 px-10 py-5">
+<footer class="bg-gray-700 mt-72 px-10 py-5 -mb-10">
 
     <div class="px-0 lg:px-96">
         <div class="flex justify-center flex-col text-center">
