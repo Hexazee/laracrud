@@ -42,7 +42,7 @@ class DashboardPostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Post $post)
     {
         $dataValidated = $request->validate([
             'title' => 'required|max:100',
@@ -50,7 +50,11 @@ class DashboardPostController extends Controller
             'body' => 'required',
         ]);
 
-        $dataValidated['slug'] = Str::slug(strip_tags($request->title));
+        $slug = Str::slug(strip_tags($request->title));
+
+        // biar gk duplikasi
+        $dataValidated['slug'] = Str::slug($slug . '-' . rand(1,1000));
+
         $dataValidated['user_id'] = auth()->user()->id;
         $dataValidated['published_at'] = now();
 
@@ -82,7 +86,11 @@ class DashboardPostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        return view('dashboard.posts.edit', [
+            'title' => 'Edit Post',
+            'post' => $post,
+            'categories' => Category::all()
+        ]);
     }
 
     /**
@@ -94,7 +102,27 @@ class DashboardPostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        $dataRules = $request->validate([
+            'title' => 'required|max:100',
+            'category_id' => 'required',
+            'body' => 'required',
+        ]);
+
+        $slug = Str::slug($request->title);
+
+        if($slug != $post->slug) {
+            $dataRules['slug'] = 'required|unique:posts';
+        }
+        
+        $dataRules['slug'] = $slug;
+
+        $dataRules['user_id'] = auth()->user()->id;
+        $dataRules['published_at'] = now();
+
+        Post::where('id', $post->id)
+                ->update($dataRules);
+
+        return redirect('/dashboard/posts')->with('success', $post->title . 'Post has been updated!');
     }
 
     /**
@@ -105,6 +133,7 @@ class DashboardPostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        Post::destroy($post->id);
+        return redirect('/dashboard/posts')->with('success', 'Post has been deleted!');
     }
 }
